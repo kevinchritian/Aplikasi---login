@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>login-script.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,36 +29,61 @@
 
 <div id="main">
     
+    <h1 class="page-title">login-script.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Catatan:
+ * Gunakan fungsi goToHome() untuk menampilkan halaman home
+ * Gunakan fungsi goToLogin() untuk menampilkan halaman login
+ * Gunakan fungsi showPopUp() untuk menampilkan pop up error
+ */
+
+const loginFormElement = document.querySelector('#loginForm');
+
+/**
+*membuat variabel inputEmailElement unutk tampilan input email
+*@constant (HTMLElement)
+*/
+const inputEmailElement = document.querySelector('#inputEmail');
+
+// membuat variabel inputPasswordElement unttuk tampilan password
+// @constan (HTMLElement)
+const inputPasswordElement = document.querySelector('#inputPassword');
+
+const expectedEmail = 'admin@dicoding.com';
 
 
+// membuat varabel expectedPassword unutk menyimpan informasi password
+const expectedPassword = 'superpassword';
 
+// menambahkan aksi klik pada Button
+loginFormElement.addEventListener('submit', function(event) {
+  event.preventDefault();
 
+  // membuat password unutk menyimapan niali password yang digunakan
+  const email = inputEmailElement.value;
+  const password = inputPasswordElement.value;
 
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>Aplikasi-Login</h1>
-<p>Sebuah aplikasi dengan fitur login.</p>
-<p>Alur Fitur Login:</p>
-<ol>
-<li>Memasukkan email dan password</li>
-<li>Memvalidasi masukan.</li>
-<li>Menampilkan halaman hone.</li>
-</ol></article>
+  // cek apakah sama kondisi
+  if (email == expectedEmail &amp;&amp; password == expectedPassword) {
+    // maka ke halaman home
+    goToHome();
+  } else {
+    // jika tidak muncul pop up
+    showPopUp();
+  }
+});
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
